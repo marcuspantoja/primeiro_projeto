@@ -22,11 +22,13 @@ from polls import views
 
 router = routers.DefaultRouter()
 router.register(r'members', views.ChoiceViewSet)
+router.register(r'carros', views.CarroViewSet)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api', include(router.urls)),
-    path('api/members2', views.member_api),
+    path('api/dados_pessoais', views.member_api),
+    path('api/carros', views.carro_api),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
