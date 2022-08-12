@@ -1,6 +1,6 @@
 # primeiro_projeto
 Prova de conceito do projeto com Django PNLD EAD
-Próxima fase será realizar o deploy no google cloud
+
 Usuário: marcuspantoja
 password: G@briel2302
 
@@ -13,4 +13,5 @@ Acesse
 http://127.0.0.1:8000/admin/
 entre com usuário e password e teste o recurso 
 
-Acesse http://127.0.0.1:8000/api/members2 e verifique a resposta da API
+Acesse http://127.0.0.1:8000/api/members e verifique a resposta da API
+Acesse http://127.0.0.1:8000/api/carros e verifique a resposta da API

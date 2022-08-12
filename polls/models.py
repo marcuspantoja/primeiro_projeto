@@ -19,10 +19,14 @@ class DadosPessoais(models.Model):
     nome =  models.CharField(max_length=100)
     cpf = models.CharField(max_length=11)
     data_nascimento = models.DateField()    
-    
+    def __str__(self):
+        return self.nome
+
 class Carro(models.Model):
     marca = models.CharField(max_length=20)
     cor = models.CharField(max_length=20)
     ano = models.DateField()
-    
+    def __str__(self):
+        return self.marca
+
 
