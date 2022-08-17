@@ -23,12 +23,12 @@ class CarroViewSet(viewsets.ModelViewSet):
 
 # api_view
 @api_view(['GET', 'POST'])
-def member_api(request):
+def member_api(request, nome):
     """
     API endpoint that allows member to be viewed or edited made by function.
     """
     if request.method == 'GET':
-        members = DadosPessoais.objects.all()
+        members = DadosPessoais.objects.filter(nome=nome)
         serializer = ChoiseSerializer(members, many=True)
         return Response(serializer.data)
 
