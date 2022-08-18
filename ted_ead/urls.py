@@ -1,4 +1,4 @@
-"""primeiro_projeto URL Configuration
+"""ted_ead URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from polls import views
+from ead import views
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -41,8 +41,9 @@ schema_view = get_schema_view(
 
 
 router = routers.DefaultRouter()
-router.register(r'members', views.ChoiceViewSet)
-router.register(r'carros', views.CarroViewSet)
+#router.register(r'members', views.ChoiceViewSet)
+#router.register(r'carros', views.CarroViewSet)
+
 
 
 urlpatterns = [
@@ -54,7 +55,8 @@ urlpatterns = [
          name='schema-redoc'),  #<-- Here
     path('admin/', admin.site.urls),
     path('api', include(router.urls)),
-    path('api/dados_pessoais/<nome>/', views.member_api),
-    path('api/carros/', views.carro_api),
+    # path('api/dados_pessoais/<nome>/', views.member_api),
+    #path('api/carros/', views.carro_api),
+    path('api/edital/', views.edital_api),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

@@ -1,4 +1,4 @@
-# primeiro_projeto
+# ted_ead
 Prova de conceito do projeto com Django PNLD EAD
 
 Usuário: marcuspantoja
