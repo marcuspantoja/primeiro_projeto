@@ -41,10 +41,6 @@ schema_view = get_schema_view(
 
 
 router = routers.DefaultRouter()
-#router.register(r'members', views.ChoiceViewSet)
-#router.register(r'carros', views.CarroViewSet)
-
-
 
 urlpatterns = [
     re_path(r'^doc(?P<format>\.json|\.yaml)$',
@@ -57,6 +53,7 @@ urlpatterns = [
     path('api', include(router.urls)),
     # path('api/dados_pessoais/<nome>/', views.member_api),
     #path('api/carros/', views.carro_api),
-    path('api/edital/', views.edital_api),
+    path('api/get_edital/', views.get_edital_api, name="Lista de Editais"),
+    path('api/post_edital/<nome>', views.post_edital_api, name="Lista de Editais"),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

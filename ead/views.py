@@ -31,58 +31,31 @@ class EditalViewSet(viewsets.ModelViewSet):
 
 
     
-'''
-# api_view
-@api_view(['GET', 'POST'])
-def member_api(request, nome):
-    """
-    API endpoint that allows member to be viewed or edited made by function.
-    """
-    if request.method == 'GET':
-        members = DadosPessoais.objects.filter(nome=nome)
-        serializer = ChoiseSerializer(members, many=True)
-        return Response(serializer.data)
 
-    if request.method == 'POST':
-        serializer = ChoiseSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['GET', 'POST'])
-def carro_api(request):
-    """
-    API endpoint that allows member to be viewed or edited made by function.
-    """
-    if request.method == 'GET':
-        carros = Carro.objects.all()
-        serializer = CarroSerializer(carros, many=True)
-        return Response(serializer.data)
-
-    if request.method == 'POST':
-        serializer = CarroSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)        
-'''
-@api_view(['GET', 'POST'])
-def edital_api(request):
+@api_view(['GET'])
+def get_edital_api(request):
     """
     API endpoint that allows member to be viewed or edited made by function.
     """
     if request.method == 'GET':
         editais = Edital.objects.all()
-        print("editais", editais)
         serializer = EditalSerializer(editais, many=True)
-        print(serializer)
-        print(serializer.data)
         return Response(serializer.data)
 
+    
+
+@api_view(['POST'])
+def post_edital_api(request, nome):
+    """
+    API endpoint that allows member to be viewed or edited made by function.
+    """
+    edital = Edital()
+    edital.nome = nome
     if request.method == 'POST':
-        serializer = EditalSerializer(data=request.data)
+        serializer = EditalSerializer(data={"nome":edital.nome})
+        print("serializer", serializer)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)            
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)                 
